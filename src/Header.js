@@ -6,10 +6,7 @@ import { Link } from "react-router-dom";
 import { useStateValue } from "./StateProvider";
 
 function Header() {
-
-  const [{basket},dispatch] = useStateValue();
-
-
+  const [{ basket }, dispatch] = useStateValue();
 
   return (
     <div className="header">
@@ -45,7 +42,10 @@ function Header() {
         <Link to="/checkout">
           <div className="header__optionBasket">
             <ShoppingBasketIcon />
-  <span className="header__optionLineTwo header__basketCount">{basket?.length}</span>
+            <span className="header__optionLineTwo header__basketCount">
+              {basket?.length}
+              {/* The above ? is called optional chaining , in any case the basket value is undefined, that part of the program terminates gracefully */}
+            </span>
           </div>
         </Link>
       </div>
